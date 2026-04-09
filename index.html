@@ -1,101 +1,82 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
-    span.s3 {font-kerning: none; color: #0a0b0d; background-color: rgba(39, 47, 184, 0.12); -webkit-text-stroke: 0px #0a0b0d}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lolamatón - Galleria Live</title>
+    
+    <script src="https://product-gallery.cloudinary.com/all.js" type="text/javascript"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcf8f2; /* Un colore crema delicato per la Comunione */
+            color: #4a4a4a;
+            text-align: center;
+        }
+        h1 { font-weight: 300; color: #b89550; }
+        #my-gallery {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            border: 1px solid #e0d0b0;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .footer { margin-top: 20px; font-size: 0.8em; color: #999; }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="it"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Lolamatón - Galleria Live&lt;/title&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://product-gallery.cloudinary.com/all.js" type="text/javascript"&gt;&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #fcf8f2; /* Un colore crema delicato per la Comunione */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #4a4a4a;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h1 { font-weight: 300; color: #b89550; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#my-gallery {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 900px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 20px auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #e0d0b0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 15px rgba(0,0,0,0.05);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.footer { margin-top: 20px; font-size: 0.8em; color: #999; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;</span><span class="s2">✨</span><span class="s1"> Lolamatón - Ricordi di Lola </span><span class="s2">✨</span><span class="s1">&lt;/h1&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="my-gallery"&gt;&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="footer"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>La galleria si aggiorna automaticamente ogni 30 secondi.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script type="text/javascript"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// 1. CONFIGURAZIONE: Inserisci il tuo Cloud Name qui sotto</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const CLOUD_NAME = "</span><span class="s3">dosy39ayg</span><span class="s1">";<span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// 2. LOGICA TAG: Recupera il tag dall'URL (?tag=nome_evento)<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Se non c'è nulla, usa quello di Lola come default</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const urlParams = new URLSearchParams(window.location.search);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const eventTag = urlParams.get('tag') || "Comunion_Lola_2026";</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// 3. INIZIALIZZAZIONE WIDGET</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const myGallery = cloudinary.galleryWidget({</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>container: "#my-gallery",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cloudName: CLOUD_NAME,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>mediaAssets: [{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>tag: eventTag,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>mediaType: "image"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}],</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>displayProps: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>mode: "classic",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>columns: 2,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>aspectRatio: "1:1"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>zoomProps: { type: "popup" },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>navigation: "thumbnails",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>styles: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>palette: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>primary: "#b89550", // Oro per la Comunione</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>active: "#8c6d31"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>myGallery.render();</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// 4. REFRESH AUTOMATICO (Ogni 30 secondi)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Ricarica la pagina per mostrare le nuove foto caricate dal BMAX</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>setTimeout(function(){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">           </span>location.reload();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}, 30000);<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+    <h1>✨ Lolamatón - Ricordi di Lola ✨</h1>
+    
+    <div id="my-gallery"></div>
+
+    <div class="footer">
+        La galleria si aggiorna automaticamente ogni 30 secondi.
+    </div>
+
+    <script type="text/javascript">
+        // 1. CONFIGURAZIONE: Inserisci il tuo Cloud Name qui sotto
+        const CLOUD_NAME = "dosy39ayg"; 
+
+        // 2. LOGICA TAG: Recupera il tag dall'URL (?tag=nome_evento) 
+        // Se non c'è nulla, usa quello di Lola come default
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventTag = urlParams.get('tag') || "Comunion_Lola_2026";
+
+        // 3. INIZIALIZZAZIONE WIDGET
+        const myGallery = cloudinary.galleryWidget({
+            container: "#my-gallery",
+            cloudName: CLOUD_NAME,
+            mediaAssets: [{
+                tag: eventTag,
+                mediaType: "image"
+            }],
+            displayProps: {
+                mode: "classic",
+                columns: 2,
+                aspectRatio: "1:1"
+            },
+            zoomProps: { type: "popup" },
+            navigation: "thumbnails",
+            styles: {
+                palette: {
+                    primary: "#b89550", // Oro per la Comunione
+                    active: "#8c6d31"
+                }
+            }
+        });
+
+        myGallery.render();
+
+        // 4. REFRESH AUTOMATICO (Ogni 30 secondi)
+        // Ricarica la pagina per mostrare le nuove foto caricate dal BMAX
+        setTimeout(function(){
+           location.reload();
+        }, 30000); 
+    </script>
 </body>
 </html>
