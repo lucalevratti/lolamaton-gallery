@@ -4,50 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lolamatón - Galleria Live</title>
-    
     <script src="https://product-gallery.cloudinary.com/all.js" type="text/javascript"></script>
     
     <style>
         body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fcf8f2; /* Un colore crema delicato per la Comunione */
-            color: #4a4a4a;
-            text-align: center;
+            margin: 0; padding: 20px;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fcf8f2;
+            color: #4a4a4a; text-align: center;
         }
-        h1 { font-weight: 300; color: #b89550; }
+        h1 { font-weight: 300; color: #b89550; margin-bottom: 10px; }
         #my-gallery {
-            width: 100%;
-            max-width: 900px;
+            width: 100%; max-width: 900px;
             margin: 20px auto;
-            border: 1px solid #e0d0b0;
             background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .footer { margin-top: 20px; font-size: 0.8em; color: #999; }
+        .tag-info { font-style: italic; color: #b89550; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
-    <h1>✨ Lolamatón - Ricordi di Lola ✨</h1>
+    <h1>✨ Lolamatón - Live Gallery ✨</h1>
+    <div id="event-display" class="tag-info"></div>
     
     <div id="my-gallery"></div>
 
-    <div class="footer">
-        Mi primera Comunión
-    </div>
-
     <script type="text/javascript">
-        // 1. CONFIGURAZIONE: Inserisci il tuo Cloud Name qui sotto
-        const CLOUD_NAME = "dosy39ayg"; 
-
-        // 2. LOGICA TAG: Recupera il tag dall'URL (?tag=nome_evento) 
-        // Se non c'è nulla, usa quello di Lola come default
+        const CLOUD_NAME = "dosy39ayg"; // Il tuo Cloud Name confermato
+        
         const urlParams = new URLSearchParams(window.location.search);
         const eventTag = urlParams.get('tag') || "Comunion_Lola_2026";
+        document.getElementById('event-display').innerText = "Evento: " + eventTag;
 
-        // 3. INIZIALIZZAZIONE WIDGET
         const myGallery = cloudinary.galleryWidget({
             container: "#my-gallery",
             cloudName: CLOUD_NAME,
@@ -55,17 +44,23 @@
                 tag: eventTag,
                 mediaType: "image"
             }],
+            // --- CONFIGURAZIONE LOOP AUTOMATICO ---
             displayProps: {
-                mode: "classic",
-                columns: 2,
+                mode: "classic", // Manteniamo classic per avere le miniature sotto
+                columns: 1,      // Una foto grande alla volta per il loop
                 aspectRatio: "1:1"
             },
+            carouselStyle: "builtin", // Stile integrato
+            transition: "fade",       // Transizione dolce tra le foto
+            autoplay: true,           // AVVIA IL GIRO AUTOMATICO
+            autoplayInterval: 3000,   // Cambia foto ogni 3 secondi (3000ms)
+            // --------------------------------------
             zoomProps: { type: "popup" },
-            navigation: "always", // Mostra sempre le frecce (accetta: none, always, mouseover)
-            thumbnails: true,     // Abilita esplicitamente le miniature sotto la foto
+            navigation: "always",
+            thumbnails: true,
             styles: {
                 palette: {
-                    primary: "#b89550", // Oro per la Comunione
+                    primary: "#b89550",
                     active: "#8c6d31"
                 }
             }
@@ -73,11 +68,10 @@
 
         myGallery.render();
 
-        // 4. REFRESH AUTOMATICO (Ogni 30 secondi)
-        // Ricarica la pagina per mostrare le nuove foto caricate dal BMAX
+        // REFRESH PAGINA: Ogni 60 secondi controlla se ci sono nuove foto caricate dal BMAX
         setTimeout(function(){
            location.reload();
-        }, 30000); 
+        }, 60000); 
     </script>
 </body>
 </html>
