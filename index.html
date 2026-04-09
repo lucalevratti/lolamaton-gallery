@@ -50,10 +50,12 @@
                 columns: 1,      // Una foto grande alla volta per il loop
                 aspectRatio: "1:1"
             },
-            carouselStyle: "builtin", // Stile integrato
-            transition: "fade",       // Transizione dolce tra le foto
-            autoplay: true,           // AVVIA IL GIRO AUTOMATICO
-            autoplayInterval: 3000,   // Cambia foto ogni 3 secondi (3000ms)
+            carouselLocation: "bottom", // Posiziona i controlli sotto
+            carouselStyle: "thumbnails", // SOSTITUITO: builtin -> thumbnails
+            transition: "fade",       
+            autoplay: true,           
+            autoplayInterval: 3000,
+            infinite: true, // Continua a girare all'infinito
             // --------------------------------------
             zoomProps: { type: "popup" },
             navigation: "always",
