@@ -3,81 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lolamatón - Galleria Live</title>
-    <script src="https://product-gallery.cloudinary.com/all.js" type="text/javascript"></script>
-    
+    <title>Lolamatón Live Slideshow</title>
     <style>
-        body {
-            margin: 0; padding: 20px;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #fcf8f2;
-            color: #4a4a4a; text-align: center;
+        body { margin: 0; background: #fcf8f2; font-family: sans-serif; text-align: center; overflow: hidden; }
+        h1 { color: #b89550; font-weight: 300; padding: 10px; margin: 0; }
+        #slideshow-container {
+            position: relative; width: 90vw; height: 80vh; margin: auto;
+            display: flex; align-items: center; justify-content: center;
         }
-        h1 { font-weight: 300; color: #b89550; margin-bottom: 10px; }
-        #my-gallery {
-            width: 100%; max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .slide {
+            position: absolute; max-width: 100%; max-height: 100%;
+            opacity: 0; transition: opacity 1.5s ease-in-out;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-radius: 10px;
         }
-        .tag-info { font-style: italic; color: #b89550; margin-bottom: 10px; }
+        .slide.active { opacity: 1; }
+        .tag-label { color: #b89550; font-style: italic; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <h1>✨ Lolamatón - Galeria Live ✨</h1>
-    <div id="event-display" class="tag-info"></div>
-    
-    <div id="my-gallery"></div>
+    <h1>✨ Lolamatón ✨</h1>
+    <div id="slideshow-container"></div>
+    <div id="tag-info" class="tag-label"></div>
 
-    <script type="text/javascript">
-        const CLOUD_NAME = "dosy39ayg"; // Il tuo Cloud Name confermato
-        
+    <script>
+        const CLOUD_NAME = "dosy39ayg"; 
         const urlParams = new URLSearchParams(window.location.search);
         const eventTag = urlParams.get('tag') || "Comunion_Lola_2026";
-        document.getElementById('event-display').innerText = "Evento: " + eventTag;
+        document.getElementById('tag-info').innerText = "Evento: " + eventTag;
 
-        const myGallery = cloudinary.galleryWidget({
-            container: "#my-gallery",
-            cloudName: CLOUD_NAME,
-            mediaAssets: [{
-                tag: eventTag,
-                mediaType: "image"
-            }],
-            // --- CONFIGURAZIONE LOOP AUTOMATICO ---
-            //displayProps: {
-            //    mode: "classic", // Manteniamo classic per avere le miniature sotto
-            //    columns: 1,      // Una foto grande alla volta per il loop
-            //    aspectRatio: "1:1"
-            //},
-            // --- NUOVA CONFIGURAZIONE AUTOPLAY GARANTITA ---
-            //autoplayProps: {
-            //    active: true,         // SOSTITUITO: autoplay -> autoplayProps.active
-            //    interval: 3000,      // SOSTITUITO: autoplayInterval -> autoplayProps.interval
-            //    stopOnHover: false   // Il carosello NON si ferma se passi il mouse
-            //},
-            transition: "fade",       
-            //infinite: true, // Ricomincia il giro dopo l'ultima foto
-            carouselStyle: "thumbnails",
-            loop: true,
-            // --------------------------------------
-            zoomProps: { type: "popup" },
-            navigation: "always",
-            thumbnails: true,
-            styles: {
-                palette: {
-                    primary: "#b89550",
-                    active: "#8c6d31"
-                }
+        let images = [];
+        let currentIndex = 0;
+
+        // 1. Recupera la lista delle immagini da Cloudinary
+        async function fetchImages() {
+            const url = `https://res.cloudinary.com/${CLOUD_NAME}/image/list/${eventTag}.json`;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                images = data.resources.map(img => 
+                    `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/c_limit,w_1200/${img.public_id}.${img.format}`
+                );
+                if (images.length > 0) startSlideshow();
+            } catch (e) {
+                console.error("Errore nel caricamento immagini. Hai sbloccato 'Resource List'?", e);
             }
-        });
+        }
 
-        myGallery.render();
+        // 2. Crea gli elementi immagine nel DOM
+        function startSlideshow() {
+            const container = document.getElementById('slideshow-container');
+            container.innerHTML = ""; // Pulisce
+            images.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'slide' + (index === 0 ? ' active' : '');
+                container.appendChild(img);
+            });
+            
+            // Avvia il ciclo ogni 4 secondi
+            setInterval(nextSlide, 4000);
+        }
 
-        // REFRESH PAGINA: Ogni 60 secondi controlla se ci sono nuove foto caricate dal BMAX
-        setTimeout(function(){
-           location.reload();
-        }, 60000); 
+        // 3. Funzione per cambiare slide
+        function nextSlide() {
+            const slides = document.querySelectorAll('.slide');
+            if (slides.length === 0) return;
+            
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }
+
+        // 4. Refresh automatico per pescare nuove foto ogni 2 minuti
+        setTimeout(() => location.reload(), 120000);
+
+        fetchImages();
     </script>
 </body>
 </html>
