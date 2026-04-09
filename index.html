@@ -25,7 +25,7 @@
 </head>
 <body>
 
-    <h1>✨ Lolamatón - Live Gallery ✨</h1>
+    <h1>✨ Lolamatón - Galeria Live ✨</h1>
     <div id="event-display" class="tag-info"></div>
     
     <div id="my-gallery"></div>
@@ -50,12 +50,15 @@
                 columns: 1,      // Una foto grande alla volta per il loop
                 aspectRatio: "1:1"
             },
-            carouselLocation: "bottom", // Posiziona i controlli sotto
-            carouselStyle: "thumbnails", // SOSTITUITO: builtin -> thumbnails
+            // --- NUOVA CONFIGURAZIONE AUTOPLAY GARANTITA ---
+            autoplayProps: {
+                active: true,         // SOSTITUITO: autoplay -> autoplayProps.active
+                interval: 3000,      // SOSTITUITO: autoplayInterval -> autoplayProps.interval
+                stopOnHover: false   // Il carosello NON si ferma se passi il mouse
+            },
             transition: "fade",       
-            autoplay: true,           
-            autoplayInterval: 3000,
-            infinite: true, // Continua a girare all'infinito
+            infinite: true, // Ricomincia il giro dopo l'ultima foto
+            carouselStyle: "thumbnails",
             // --------------------------------------
             zoomProps: { type: "popup" },
             navigation: "always",
